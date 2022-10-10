@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Daily 9-to-5</title>
+</head>
+
+<body>
+    <header class ="score-timer">
+      <h1>My 9-to-5 Scheduler</h1>
+      <h3 id="date-des">Momma Says "Be Great & Don't Be Late!"</h2>
+      <h2 id="date-curr"></h2>
+    </header>
+
+
+  <div class = "container">
+    <!-- each-hour needs the 1)hr 2)textarea 3) save button -->
+    <div class="each-hour"> 
+      <div id="hr-num" class="theTime">9:00</div> 
+      <textarea  id="hr-num-box" class="theSched"></textarea>
+      <div id="hr-button" onclick="saveToLocal()"></div> 
+    </div>
+  </div>
+
+
+  <script src="./assets/js/script.js"></script>
+  </body>
+
+</html>
