@@ -1,31 +1,50 @@
+
+var schedContainer = $('.container');
+
 const d = new Date();
-// // dte prints:  Mon Oct 10 2022 12:34:10 GMT-0400 (Eastern Daylight Time)
-// getDate()	Returns the day of the month (from 1-31)
-// const d = new Date();
-const monthArr = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-let moNum = d.getMonth(); // 0  to 11: (jan to dec)
-let moName = monthArr[d.getMonth()];
+var dateStr = String(d);
+var dateArr = dateStr.split(' ');
+console.log(dateArr);  //  [ 'Mon', 'Oct', '17', '2022','02:06:54', 'GMT-0400','(Eastern', 'Daylight', 'Time)' ]
+var dailyDate = `${dateArr[0]} ${dateArr[1]} ${dateArr[2]}, ${dateArr[3]}`;
+var dateHdr = document.getElementById('date-curr');
+dateHdr.textContent = dailyDate;
 
-const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+function addToLocal(event) {
+    var schedTxt = $(this).siblings('.theSched').val();
+    var timeTxt = $(this).siblings('.theTime').attr('id');
+    window.localStorage.setItem(timeTxt,schedTxt);
+    // console.log('vals i need time and text: ',timeTxt,schedTxt);
+  }
 
-let dayNum = d.getDay();
-let dayName = weekday[d.getDay()]; //(from 0-6)
+schedContainer.on('click', '.hr-add', addToLocal);
 
-// getDay()	Returns the day of the week (from 0-6)
-// getFullYear()	Returns the year
-// getHours()	Returns the hour (from 0-23)
-let hrNum = d.getHours();
+// loop localStorage keys/values 
+for (let [k,v] of Object.entries(localStorage)){
+    $(`.${k} .theSched`).val(v); // BOOOM - needed the '.' before the ${k}!!!!
+    // console.log(k,v);
+}
 
-// getMilliseconds()	Returns the milliseconds (from 0-999)
-// getMinutes()	Returns the minutes (from 0-59)
-// getMonth()	Returns the month (from 0-11)
-// getSeconds()	Returns the seconds (from 0-59)
-// getTime()	Returns the number of milliseconds since midnight Jan 1 1970, and a specified date
+function updateSched() {
+    // get current number of hours
+    var dateNew = new Date();
+    var dateNewStr = String(dateNew);
+    var newHr = dateNewStr.split(' ')[4];
+    var timeArr = newHr.split(':');
+    var currHr = Number(timeArr[0]);
+    // console.log(currHr);
 
-console.log(`full date     ${d}`);
+    // loop over time blocks
+    $('.hr-block').each(function() {
+      var hourSched = Number(parseInt($(this).attr('class').split('-')[2]));
+    //   console.log(hourSched);  // -- boom!!
 
-console.log('month num: ',moNum, 'month name: ',moName);
+    //   // check if we've moved past this time
+      if (hourSched < currHr) {
+        var theTimeVal = $(this).children('.theTime');
+        var theSchedVal = $(this).children('.theSched');
+        console.log(theSchedVal.val());
+      }
+ 
+    })}
 
-console.log('weekday num: ',dayNum, 'weekday name: ',dayName);
-
-console.log('the hour number: ',hrNum);
+  updateSched();
