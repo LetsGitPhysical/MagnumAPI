@@ -1,0 +1,71 @@
+*{
+    box-sizing:border-box;
+    /* margin:0px; */
+    /* padding:0px; */
+    font-family: MV Boli;
+    border: 1px solid rgb(255,0,0);
+}
+
+header, h1,h3{
+    text-align: center;
+    margin:0px;
+    padding:0px;
+}
+/* textarea {
+    background: transparent;
+    border: none;
+    resize: none;
+    color: #000000;
+    border-left: 1px solid black;
+    padding: 10px;
+  } */
+
+.container{
+    margin: 10px 5px 10px 5px;
+    align-content: center;
+    font-size: 18px;
+    text-align: center;
+}
+
+.hr-block{
+    display:flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    /* justify-content: space-evenly; */
+    margin: 5px auto 5px auto;  
+}
+
+.theTime, .hr-add{
+    width: 15%;
+    padding: 10px 0px 10px 0px;
+}
+.theSched{
+    width: 70%;
+    text-align: justify;
+    padding: 5px 0px 5px 0px;
+    resize: none;
+    /* font-size: 18px; */
+}
+
+.hr-add{
+    color:hsl(180, 25%, 25%);
+    background-color:hsl(127, 100%, 79%);
+    
+}
+.hr-add:hover{
+    color:hsl(291, 73%, 32%);
+    background-color:hsl(171, 100%, 39%);
+    cursor: pointer;
+}
+
+#current-hr{
+    background-color:hsl(57, 100%, 53%);
+}
+
+.expired-hr{
+    background-color:hsl(60, 6%, 49%);
+}
+
+#remain-hr{
+    background-color:hsla(168, 59%, 69%, 0.801);
+}
