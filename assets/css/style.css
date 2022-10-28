@@ -1,55 +1,120 @@
 *{
     box-sizing:border-box;
     /* margin:0px; */
-    /* padding:0px; */
+    font-size: 1.7vw;
     font-family: MV Boli;
-    border: 1px solid rgb(255,0,0);
+    /* border: 1px solid rgb(255,0,0); */
 }
-
-header, h1,h3{
+body{
+    background-color:rgba(7, 58, 58,.75);
+}
+header{
+    background-color: rgba(182, 92, 143, 0.777);
+    text-align: center;
+    margin:0px;
+    /* padding:0px; */
+    padding: 4px 6px 4px 6px;
+    border: 1px solid rgba(255,0,0,.45);
+    border-radius: 4px;
+}
+h1{
+    color:rgb(191, 80, 255);
+    background-color: rgba(255, 226, 5, 0.958);
     text-align: center;
     margin:0px;
     padding:0px;
+    font-size: 2.5vw;
+    border-radius: 4px;
 }
-/* textarea {
-    background: transparent;
-    border: none;
-    resize: none;
-    color: #000000;
-    border-left: 1px solid black;
-    padding: 10px;
-  } */
+h3{
+    color:rgb(247, 136, 255);
+    background-color: rgba(18, 130, 160, 0.566);
+    text-align: center;
+    margin:0px;
+    padding:0px;
+    font-size: 2.0vw;
+    border-radius: 4px;
+}
+.date-reset-sched{
+    background-color: rgba(19, 2, 95, 0.777);
+    display:flex;
+    flex-direction: row;
+    font-size: 2.25vw;
+    border-radius: 4px;
+}
+#reset-sched{
+    display:flex;
+    margin: auto 10px auto 0px;
+    padding:0px 6px 0px 6px;
+    font-size: 1.4vw;
+    background-color:rgb(7, 58, 58);
+    color: rgb(0, 255, 221);
+    border: solid 1px rgba(247, 13, 255, 0.75);
+    cursor: pointer;
+    border-radius: 4px;
+}
+#reset-sched:hover{
+    color: rgb(25, 7, 106);
+    background-color: rgb(255, 147, 5);
+    border: solid 1px rgb(227, 255, 18);
+}
+
+h2{
+    display:flex;
+    color:rgb(8, 174, 174);
+    text-align: center;
+    margin:0px auto 0px 10px;
+    padding:0px;
+    font-size: 2.25vw;
+    border-radius: 4px;
+}
 
 .container{
-    margin: 10px 5px 10px 5px;
+    display:block;
+    margin: 10px 0px 10px 0px;
+    padding: 2px 6px 2px 6px;
     align-content: center;
-    font-size: 18px;
     text-align: center;
+    background-image: url("../pics/aiw_rabbit.png"),linear-gradient(180deg, rgba(255,255,255,.75) 0%, rgba(255,255,255,.75) 100%);
+    background-blend-mode: soft-light;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: contain;
+    border-radius: 4px;
 }
 
 .hr-block{
     display:flex;
     flex-direction: row;
-    /* justify-content: space-between; */
-    /* justify-content: space-evenly; */
-    margin: 5px auto 5px auto;  
+    margin: 5px auto 5px auto;
+    /* border: 1px solid rgb(255,0,0); */
+    border-radius: 4px;
 }
 
 .theTime, .hr-add{
     width: 15%;
     padding: 10px 0px 10px 0px;
+    border: 1px solid rgba(255,0,0,.45);
+    border-radius: 4px;
+}
+.theTime{
+    background-color: rgba(255, 99, 71, 0.451);
+    border-radius: 4px;
 }
 .theSched{
     width: 70%;
     text-align: justify;
-    padding: 5px 0px 5px 0px;
+    padding: 5px 5px 5px 5px;
     resize: none;
-    /* font-size: 18px; */
+    background-color: transparent;
+    border: 1px solid rgba(255,0,0,.45);
+    border-radius: 4px;
 }
 
 .hr-add{
-    color:hsl(180, 25%, 25%);
-    background-color:hsl(127, 100%, 79%);
+    color:hsl(180, 59%, 11%);
+    background-color:rgba(148, 255, 160,.60);
     
 }
 .hr-add:hover{
@@ -58,14 +123,41 @@ header, h1,h3{
     cursor: pointer;
 }
 
-#current-hr{
-    background-color:hsl(57, 100%, 53%);
+.ui-effects-transfer { border: 2px dotted gray; }
+
+.hr-block[timecolor="past"],.hr-block[timecolor="past"]>.theTime,.hr-block[timecolor="past"]>.hr-add{
+    background-color: rgba(33, 16, 49, 0.40);
+}
+.hr-block[timecolor="present"]{
+    background-color: rgba(255, 72, 11, 0.581); 
+}
+.hr-block[timecolor="future"]{
+    background-color: rgba(94, 255, 118, 0.35); 
 }
 
-.expired-hr{
-    background-color:hsl(60, 6%, 49%);
+.theSched[confirm-sched="added"] {
+    animation-name: confirmSched;
+    animation-duration: 2.5s;
+}
+  
+@keyframes confirmSched {
+0%   {background-color: rgba(255, 102, 0, 0.75);}
+25%  {background-color: rgba(255, 204, 0, 0.75);}
+50%  {background-color: rgba(0, 234, 255, 0.75);}
+100% {background-color: rgba(118, 21, 192, 0.75);}
 }
 
-#remain-hr{
-    background-color:hsla(168, 59%, 69%, 0.801);
+@media screen and (max-width: 768px) {
+    .container{
+        font-size: 15px;
+    }
+    h1{
+        font-size:6vw;
+    }
+    h3,#reset-sched{
+        font-size:3vw;
+    }
+    h2{
+        font-size:4vw;
+    }
 }
