@@ -31,7 +31,7 @@ THEN the saved events persist
 
 The following animation demonstrates the application functionality:
 
-![Work Day Scheduler app with color-coded time slots shows a new event being typed in the 5PM slot.](./Assets/pics/scheduler.jpg)
+![Snapshot Preview](./assets/pics/scheduler.jpg)
 
 ## Review
 
