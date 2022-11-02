@@ -14,7 +14,6 @@ function addToLocal() {
 };
 schedContainer.on('click', '.hr-add', addToLocal);
 
-
 function clearStoredEvents() {
   localStorage.clear();
   updateSched();
@@ -25,7 +24,7 @@ function updateSched() {
     const dateNew = new Date();
     var dateStr = String(dateNew);
     var dateArr = dateStr.split(' ');
-    console.log(dateArr);  //  [ 'Mon', 'Oct', '17', '2022','02:06:54', 'GMT-0400','(Eastern', 'Daylight', 'Time)' ]
+    // console.log(dateArr);  //  [ 'Mon', 'Oct', '17', '2022','02:06:54', 'GMT-0400','(Eastern', 'Daylight', 'Time)' ]
     var dailyDate = `${dateArr[0]} ${dateArr[1]} ${dateArr[2]}, ${dateArr[3]}`;
     $('#date-curr').text(dailyDate);
     var newHr = dateArr[4].split(':');
@@ -50,7 +49,7 @@ function updateSched() {
     });
   }// close of udpate function
   updateSched();
-  // var runTimer = setInterval(updateSched, 30000); // every 30 seconds updates
+  var runTimer = setInterval(updateSched, 30000); // every 30 seconds updates
 });
 
 
